@@ -1,0 +1,9 @@
+#!/usr/bin/with-contenv bash
+
+groupmod -o -g "$PGID" abc
+usermod -o -u "$PUID" abc
+
+chown -R abc:abc /app
+chown -R abc:abc /appdata
+chown -R abc:abc /var/run/s6/services
+chown -R abc:abc /root

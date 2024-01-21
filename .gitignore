@@ -1,3 +1,7 @@
+# Test Files
+test-data
+channels.txt
+
 # Logs
 logs
 *.log

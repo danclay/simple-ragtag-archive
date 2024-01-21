@@ -1,0 +1,9 @@
+#!/usr/bin/with-contenv bash
+
+echo "
+UID/GID
+---------------------------------------
+User uid:  $(id -u abc)
+User gid:  $(id -g abc)
+---------------------------------------
+"
