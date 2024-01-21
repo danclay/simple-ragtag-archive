@@ -7,7 +7,7 @@ Ideas from [Jeeaaasus/youtube-dl](https://github.com/Jeeaaasus/youtube-dl) and [
 
 ## Setup
 
-1. Install Docker and run `git pull https://github.com/danclay/simple-ragtag-archive.git`
+1. Install Docker and run `git clone https://github.com/danclay/simple-ragtag-archive.git`
 
 2. Copy `.env.example` to `.env` (run `cp .env.example .env`) and edit `.env` to your desired values. Alternatively, you can just replace the variable references in `docker-compose.yaml` directly for a more complex setup. Please only change `YTDLP_ARGS` if you know what you are doing. Read the [Ragtag Archive Github](https://github.com/ragtag-archive/archive-browser) first.
 
