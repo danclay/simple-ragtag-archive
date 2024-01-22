@@ -40,3 +40,9 @@ Ideas from [Jeeaaasus/youtube-dl](https://github.com/Jeeaaasus/youtube-dl) and [
 ## Post-update / Fixing Data
 
 If the ID.db.json files are incorrect and this has been fixed in a version or if you just want the data pushed to Elastic Search, run `docker compose exec ytdlp node /app/scripts/fixData.js`. 
+
+## Customize
+
+### Cloudflare Warp
+
+If you are running this in a datacenter or do not have a reputable IP, you can use Cloudflare Warp to have better success at fetching Youtube data. To enable this, uncomment where stated in `docker-compose.yaml`, add `--proxy socks5://warp:1080` to `YTDLP_ARGS` in `.env`, and run `docker compose up -d`.

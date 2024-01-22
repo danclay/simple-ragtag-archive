@@ -4,6 +4,7 @@ version: '3'
 services:
   # Archive frontend
   archive-browser:
+    restart: unless-stopped
     build: ./archive-browser
     environment:
       - DRIVE_BASE_URL=${DRIVE_BASE_URL}
@@ -16,6 +17,7 @@ services:
 
   # Elasticsearch database
   elastic:
+    restart: unless-stopped
     image: docker.elastic.co/elasticsearch/elasticsearch:7.12.0
     environment:
       - discovery.type=single-node
@@ -29,6 +31,7 @@ services:
 
   # Nginx file server
   nginx:
+    restart: unless-stopped
     image: nginx:stable
     volumes:
       # TODO: update mount point to where your files will be stored
@@ -40,6 +43,7 @@ services:
       - ragtag-archive
 
   ytdlp:
+    restart: unless-stopped
     build: ./yt-dlp
     volumes:
       - ${DATA_DIRECTORY}:/data
@@ -55,6 +59,23 @@ services:
       - RUN_ON_STARTUP=${YTDLP_RUN_ON_STARTUP}
     networks:
       - ragtag-archive
+    # Uncomment below to use WARP
+    # depends_on:
+    #   - warp
+
+  # Uncomment below to use WARP
+  # warp:
+  #   restart: unless-stopped
+  #   image: aleskxyz/warp-svc:latest
+  #   expose:
+  #   - 1080
+  #   environment:
+  #     # WARP_LICENSE: xxxxxxxx-xxxxxxxx-xxxxxxxx
+  #     FAMILIES_MODE: off
+  #   volumes:
+  #   - ${APPDATA_DIRECTORY}/warp:/var/lib/cloudflare-warp
+  #   networks:
+  #     - ragtag-archive
 
 volumes:
   esdata:
