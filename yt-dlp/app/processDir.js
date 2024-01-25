@@ -58,7 +58,7 @@ async function processDirectory(mainDir, fixData = false) {
 			}
 		}
 	} catch (error) {
-		console.error(`Error processing directory: ${error.message}`);
+		console.error(error);
 	}
 }
 
