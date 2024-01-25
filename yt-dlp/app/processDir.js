@@ -30,6 +30,8 @@ async function processDirectory(mainDir, fixData = false) {
 								if (await fileExists(dbFilePath)) {
 									const oldData = await readAndParseJson(dbFilePath);
 									dbDataObj = await convertInfoJson(mainDir, dirName, infoData, oldData);
+								} else {
+									dbDataObj = await convertInfoJson(mainDir, dirName, infoData, undefined);
 								}
 							} else {
 								dbDataObj = await convertInfoJson(mainDir, dirName, infoData, undefined);
