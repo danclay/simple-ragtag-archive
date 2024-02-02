@@ -100,4 +100,5 @@ cron.schedule(process.env.CRON_SCHEDULE, () => {
             }
         });
     }
+    check();
 });
